@@ -15,6 +15,8 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
 import { EmployeeAddAndEditComponent } from './Components/employee-add-and-edit/employee-add-and-edit.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { EmployeeAddAndEditComponent } from './Components/employee-add-and-edit/
     MatNativeDateModule,
     MatButtonModule,
     MatDialogModule,
-    MatInputModule
+    MatInputModule,
+    ReactiveFormsModule,
+    HttpClientModule
 
   ],
   providers: [],

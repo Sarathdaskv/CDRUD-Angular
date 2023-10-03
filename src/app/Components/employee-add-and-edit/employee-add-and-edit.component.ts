@@ -1,4 +1,8 @@
+import { DialogRef } from '@angular/cdk/dialog';
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { EmployeeService } from 'src/app/Services/employee.service';
+import { Employee } from 'src/app/employee';
 
 @Component({
   selector: 'app-employee-add-and-edit',
@@ -6,10 +10,38 @@ import { Component } from '@angular/core';
   styleUrls: ['./employee-add-and-edit.component.scss']
 })
 export class EmployeeAddAndEditComponent {
-education:string[]=[
-  'Matriculation',
-  'Diploma',
-  'Graduate',
-  'Post Graduate'
-]
+  empForm: FormGroup;
+  education: string[] = [
+    'Matriculation',
+    'Diploma',
+    'Graduate',
+    'Post Graduate'
+  ]
+  constructor(private formBulid: FormBuilder,private empService:EmployeeService,private dialogRef:DialogRef<EmployeeAddAndEditComponent>) {
+    this.empForm = formBulid.group({
+      firstName: '',
+      lastName: '',
+      email: '',
+      dob: '',
+      gender: '',
+      education: '',
+      company: '',
+    });
+  }
+  onFormSubmit() {
+    if (this.empForm.valid) {
+      this.empService.addEmployee(this.empForm.value).subscribe({
+        next:(val:any)=>{
+          alert('Employee record added.')
+          this.dialogRef.close();
+        },
+          error:(err)=>{
+            console.log(err);
+            
+          }
+        
+      })
+
+    }
+  }
 }
