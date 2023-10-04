@@ -17,6 +17,9 @@ import {MatSelectModule} from '@angular/material/select';
 import { EmployeeAddAndEditComponent } from './Components/employee-add-and-edit/employee-add-and-edit.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import {MatTableModule} from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+
 
 @NgModule({
   declarations: [
@@ -38,8 +41,10 @@ import { HttpClientModule } from '@angular/common/http';
     MatDialogModule,
     MatInputModule,
     ReactiveFormsModule,
-    HttpClientModule
-
+    HttpClientModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
