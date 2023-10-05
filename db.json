@@ -18,37 +18,7 @@
   },
   "employees": [
     {
-      "firstName": "safvan",
-      "lastName": "kv",
-      "email": "saf@rvg,uy",
-      "dob": "2023-10-08T18:30:00.000Z",
-      "gender": "male",
-      "education": "Matriculation",
-      "company": "dgfrhg",
-      "id": 3
-    },
-    {
-      "firstName": "dhdg",
-      "lastName": "btdht",
-      "email": "fgsh@byh.iu",
-      "dob": "2023-10-16T18:30:00.000Z",
-      "gender": "male",
-      "education": "Graduate",
-      "company": "gf fd",
-      "id": 5
-    },
-    {
-      "firstName": "cvxbgfb",
-      "lastName": "defw",
-      "email": "sdfws@edfe.iu",
-      "dob": "2023-10-17T18:30:00.000Z",
-      "gender": "male",
-      "education": "Graduate",
-      "company": " bcgf",
-      "id": 6
-    },
-    {
-      "firstName": "vbdfsngf",
+      "firstName": "abcd",
       "lastName": "rdgr",
       "email": "vfdg@fref.oi",
       "dob": "2023-10-11T18:30:00.000Z",

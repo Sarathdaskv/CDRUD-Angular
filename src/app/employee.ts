@@ -6,4 +6,5 @@ export class Employee{
       gender!: string
       education!: string
       company!: string
+      id!:number
 }

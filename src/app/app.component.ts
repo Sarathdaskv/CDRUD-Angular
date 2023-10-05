@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { EmployeeAddAndEditComponent } from './Components/employee-add-and-edit/employee-add-and-edit.component';
 import { EmployeeService } from './Services/employee.service';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
@@ -18,7 +18,10 @@ export class AppComponent implements OnInit {
 
 
 
-  constructor(private dialog: MatDialog, private empService: EmployeeService) { }
+  constructor(private dialog: MatDialog,
+     private empService: EmployeeService,
+    
+    ) { }
 
   displayedColumns: string[] = ['id', 'firstName', 'lastName', 'email', 'dob', 'gender', 'education', 'company', 'action'];
   dataSource!: MatTableDataSource<Employee>;
@@ -74,6 +77,22 @@ export class AppComponent implements OnInit {
 
       }
     })
+  }
+
+  editForm(data:Employee){
+    const dialogRef = this.dialog.open(EmployeeAddAndEditComponent,{
+      data
+    })
+    dialogRef.afterClosed().subscribe({
+      next: (val) => {
+        this.getEmployeeList();
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    })
+    
+
   }
 
 }
