@@ -44,29 +44,31 @@ export class EmployeeAddAndEditComponent implements OnInit {
   onFormSubmit() {
 
     if (this.empForm.valid) {
-      if (this.data) {
+      console.log(this.data);
+
+      if (this.data != null) {
         this.empService.editEmployee(this.data.id, this.empForm.value).subscribe({
           next: (val: any) => {
             alert('Employee record updated.')
             this.dialogRef.close(true);
           },
-        error: (err) => {
-          console.log(err);
-        }
+          error: (err) => {
+            console.log(err);
+          }
         })
       }
-    } else {
-      this.empService.addEmployee(this.empForm.value).subscribe({
-        next: (val: any) => {
-          alert('Employee record added.')
-          this.dialogRef.close(true);
-        },
-        error: (err) => {
-          console.log(err);
-        }
-      })
+      else {
+        this.empService.addEmployee(this.empForm.value).subscribe({
+          next: (val: any) => {
+            alert('Employee record added.')
+            this.dialogRef.close(true);
+          },
+          error: (err) => {
+            console.log(err);
+          }
+        })
+      }
     }
-
 
   }
 }

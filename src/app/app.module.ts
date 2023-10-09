@@ -19,12 +19,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {MatTableModule} from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { firstCapitalPipe } from './firstCapital.pipe';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    EmployeeAddAndEditComponent
+    EmployeeAddAndEditComponent,
+    firstCapitalPipe
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     HttpClientModule,
     MatTableModule,
     MatPaginatorModule,
-    MatIconModule
+    MatIconModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
