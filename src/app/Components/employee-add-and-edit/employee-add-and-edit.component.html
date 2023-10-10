@@ -1,7 +1,5 @@
-
-
 <div mat-dialog-title>
-    <h1>Employee Form</h1>
+    <h1 appCustom>Employee Form</h1>
 </div>
 <form [formGroup]="empForm" (ngSubmit)="onFormSubmit()">
     <div mat-dialog-content class="pt-1">
@@ -9,16 +7,31 @@
             <mat-form-field class="col-sm-12 col-md-6 " appearance="outline">
                 <mat-label>First Name</mat-label>
                 <input matInput formControlName="firstName">
+                
+                  <mat-error
+                    *ngIf="(empForm.controls['firstName'].dirty || empForm.controls['firstName'].touched)">
+                    first name is required .
+                </mat-error>
+                
             </mat-form-field>
+
             <mat-form-field class="col-sm-12 col-md-6" appearance="outline">
                 <mat-label>Last Name</mat-label>
                 <input matInput formControlName="lastName">
+                <mat-error
+                *ngIf="(empForm.controls['lastName'].dirty || empForm.controls['lastName'].touched)">
+                last name is required .
+            </mat-error>
             </mat-form-field>
         </div>
         <div class="row">
             <mat-form-field class="col-sm-12 col-md-6 " appearance="outline">
                 <mat-label>E mail</mat-label>
                 <input matInput type="email" formControlName="email">
+                <mat-error
+                *ngIf="(empForm.controls['email'].dirty || empForm.controls['email'].touched)">
+              Invalid email
+            </mat-error>
             </mat-form-field>
             <mat-form-field class="col-sm-12 col-md-6 " appearance="outline">
                 <mat-label>Date Of Birth</mat-label>
@@ -26,6 +39,10 @@
 
                 <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
+                <mat-error
+                *ngIf="(empForm.controls['dob'].dirty || empForm.controls['dob'].touched)">
+                kindly pick a date
+            </mat-error>
             </mat-form-field>
 
         </div>
@@ -36,6 +53,10 @@
                 <mat-radio-button value="female">Female</mat-radio-button>
                 <mat-radio-button value="others">Others</mat-radio-button>
             </mat-radio-group>
+            <mat-error
+            *ngIf="(empForm.controls['gender'].dirty || empForm.controls['gender'].touched)">
+            select a gender.
+        </mat-error>
         </div>
         <div class="row">
             <mat-form-field class="col-sm-12 col-md-6 " appearance="outline">
@@ -45,16 +66,25 @@
                         {{val}}
                     </mat-option>
                 </mat-select>
+                <mat-error
+                *ngIf="(empForm.controls['education'].dirty || empForm.controls['education'].touched)">
+                education is required .
+            </mat-error>
             </mat-form-field>
             <mat-form-field class="col-sm-12 col-md-6 " appearance="outline">
                 <mat-label>Company</mat-label>
                 <input matInput formControlName="company">
+                <mat-error
+                *ngIf="(empForm.controls['firstName'].dirty || empForm.controls['firstName'].touched)">
+                Company is required.
+            </mat-error>
             </mat-form-field>
         </div>
 
     </div>
     <div mat-dialog-actions class="gap-2">
         <button mat-raised-button class="ms-3 px-5" type="button" [mat-dialog-close]="false">Cancel</button>
-        <button mat-raised-button color="primary" class="px-5" type="submit">{{data? 'Update':'Save'}}</button>
+        <button [disabled]="empForm.invalid" mat-raised-button color="primary" class="px-5" type="submit">{{data?
+            'Update':'Save'}}</button>
     </div>
 </form>

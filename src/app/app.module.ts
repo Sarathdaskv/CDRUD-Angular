@@ -20,13 +20,15 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatTableModule} from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { firstCapitalPipe } from './firstCapital.pipe';
+import { CustomDirective } from './custom.directive';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     EmployeeAddAndEditComponent,
-    firstCapitalPipe
+    firstCapitalPipe,
+    CustomDirective
   ],
   imports: [
     BrowserModule,

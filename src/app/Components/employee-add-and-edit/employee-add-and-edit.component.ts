@@ -1,6 +1,6 @@
 
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { EmployeeService } from 'src/app/Services/employee.service';
 import { Employee } from 'src/app/employee';
@@ -27,13 +27,13 @@ export class EmployeeAddAndEditComponent implements OnInit {
 
 
     this.empForm = formBulid.group({
-      firstName: '',
-      lastName: '',
-      email: '',
-      dob: '',
-      gender: '',
-      education: '',
-      company: '',
+      firstName: ['', [Validators.required, Validators.minLength(3)]],
+      lastName: ['', [Validators.required, Validators.minLength(3)]],
+      email: ['', [Validators.required, Validators.email]],
+      dob: ['', [Validators.required]],
+      gender: ['', [Validators.required]],
+      education: ['', [Validators.required]],
+      company: ['', [Validators.required, Validators.minLength(3)]],
     });
   }
   ngOnInit(): void {
@@ -41,6 +41,7 @@ export class EmployeeAddAndEditComponent implements OnInit {
     this.empForm.patchValue(this.data);
 
   }
+ 
   onFormSubmit() {
 
     if (this.empForm.valid) {
